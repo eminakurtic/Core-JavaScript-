@@ -1,0 +1,1 @@
+alert(confirm("Da li je dan")?"Dobar dan":"Dobro veče");
