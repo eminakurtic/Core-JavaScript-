@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="find">Moj element</div>
+    <p class="me">121</p>
+    <p class="me">232</p>
+    <a href="" class="now">343</a>
+    <script>
+    /*
+        var $ = function(el){
+            return document.querySelectorAll(el);
+        }
+        var log = function(el){
+            console.log(el)
+        }
+        log($('.now'));
+
+        var $ = {
+            result:0,
+            add:function(a, b){
+                this.result = a + b;
+                return this;
+    },
+        multiply:function(a){
+            this.result = this.result * a;
+            return this;
+    },
+        divide:function(a){
+            this.result /= a;
+            return this;
+    }
+    };
+
+    $.add(10, 30).multiply(2).divide(4).add(3, 6).multiply(3);
+        console.log($.result);
+    */
+        var $ = {
+            elements:"",
+        get:function(el){
+            this.elements = document.querySelectorAll(el);
+
+        return this;
+    },
+        color:function(color){
+            for(var i = 0; i < this.elements; i++){
+            console.log(this.elements);
+                this.elements[i].style.color = color;
+
+            return this;
+        }
+    }
+}
+
+        $.get('.me').color("#2ea3f2");
+        
+
+    </script>
+</body>
+</html>

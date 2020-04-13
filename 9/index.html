@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="div" style="width:100px; height:100px; background-color:red;">Hello</div>
+    <div class="div" style="width:100px; height:100px; background-color:yellow;">From</div>
+    <div class="div" style="width:100px; height:100px; background-color:green;">My</div>
+    <div id="last" class="div" style="width:100px; height:100px; background-color:blue;">Page</div>
+
+    <script>
+        /*
+        var elements = document.getElementsByTagName("div");
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.border = "1px solid #000";
+            console.log("Promijenio " + i + " element...");
+        }
+        */
+       /* Funkcija za sređivanje bordera po nazivu elementa */
+        function tagBorder(element, thick, type, color){
+            var elements = document.getElementsByTagName(element);
+            var border = " " + thick + "px " + type + " " + color + " ";
+            
+            for(var i = 0; i < elements.length; i++){
+                elements[i].style.border = border;
+            }
+        }
+
+        tagBorder("div", "2", "solid", "blue");
+
+        function classFontSize(className, size){
+            var elements = document.getElementsByClassName(className);
+            var size = " " + size + "px ";
+            
+            for(var i = 0; i < elements.length; i++){
+                elements[i].style.fontSize = size;
+            }
+        }
+        tagBorder("div", "30");
+
+/* Funkcija za sređivanje margine po bilo kojem CSS selektoru */
+        function ab_margin(element, a, b = "", c = "", d = ""){
+    var elements = document.querySelectorAll(element);
+    if(a != "" && b != "" && c != "" && d != ""){
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.margin = a + "px " + b + "px " + c + "px " + d + "px";
+        }
+    }else if(a != "" && b != ""){
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.margin = a + "px " + b + "px ";
+        }
+    }else{
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.margin = a + "px ";
+        }
+    }
+}
+
+ab_margin("div", "10", "20", "15", "45");
+
+/* Funkcija za kreiranje elementa, njegovog sadržaja i dodavanje tog element nekom roditelju */
+    function ab_append_el(element, text, parent){
+        var element = document.createElement(element);
+        var text = document.createTextNode(text);
+   element.appendChild(text);
+        var parent = document.querySelector(parent);
+   parent.appendChild(element);
+}
+
+    ab_append_el("span", " > ", "#last");
+
+
+/* Funkcija za brisanje jednog ili više elemenata sa stranice */
+
+    function ab_remove_el(element){
+        var elements = document.querySelectorAll(element);
+   for(var i = 0; i < element.length; i++){
+       elements[i].remove();
+   }
+}
+
+    ab_remove_el(".div");
+
+    </script>
+</body>
+</html>
