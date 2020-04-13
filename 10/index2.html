@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="document.getElementById('target').innerHTML = this.innerHTML">
+        Moj sadržaj
+    </div>
+    <div id="target">
+        Moj stari sadržaj
+    </div>
+
+    <div onmouseenter="obrisi(this)">Treći div koji će ostati bez sadržaja</div>
+    <script>
+        function obrisi(element){
+            element.innerHTML = "";
+        }
+
+        /* Kreiranje elementa i dodavanje stranici */
+        mojDiv = document.createElement("div");
+        mojDiv.innerHTML = "Ovo je neki četvrti div, ko više broji...";
+        mojDiv.addEventListener("click", function(){
+            console.log("You clicked me!");
+        });
+        mojDiv.addEventListener("mouseenter", function(){
+            console.log("Hey, you are here!");
+        })
+        mojDiv.addEventListener("mouseleave", function(){
+            console.log("Hey, you are leaving me!");
+        })
+        document.body.appendChild(mojDiv);
+
+        /* Kreiranje elemenata i dodavanje stranici */
+        mojDivDva = document.createElement("div");
+        mojDivDva.innerHTML = "Click me, click me, click me...";
+        mojDivDva.onclick = function(event){
+            console.debug(event);
+        }
+        document.body.appendChild(mojDivDva);
+    </script>
+</body>
+</html>
