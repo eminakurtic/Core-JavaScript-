@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var d = new Date();
+        var dan = d.getDay();
+        alert(dan);
+
+        switch(dan){
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                console.log("Obični radni dan!");
+            break;
+            case 5:
+                console.log("Stigao je petak!");
+            break;
+            case 6:
+                console.log("Ultra subota!");
+            break;
+            case 0:
+                console.log("Danas me svi pustite na miru!");
+            break;
+            default:
+                console.log("Izgleda da je dan između nedjelje i ponedeljka!");
+            break;
+        }
+    </script>
+</body>
+</html>
